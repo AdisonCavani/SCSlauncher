@@ -15,6 +15,11 @@ namespace SCSlauncher.Core.ViewModels
     {
         public MainViewModel()
         {
+            Debug.Initialize();
+            Debug.Log("Test");
+            Debug.LogWarning("Test");
+            Debug.LogException("Test");
+            Debug.LogError("Test");
             AddNumberCommand = new RelayCommand(AddNumber);
         }
 
