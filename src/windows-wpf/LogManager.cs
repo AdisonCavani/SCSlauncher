@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SCSlauncher.Windows
+namespace SCSlauncher.Core
 {
     public static class Debug
     {
-        private static string programPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SCSlauncher";
+        public static Stopwatch sw = Stopwatch.StartNew();
+        private static string programPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SCS Launcher";
         private static string logFile = "\\app.log";
         private static string logPath = programPath + logFile;
         private static CultureInfo cultureInfo = new CultureInfo("en-US", false); // Date formatting to English
@@ -23,6 +21,7 @@ namespace SCSlauncher.Windows
             if (!FileManager.CheckForDirectory(programPath))
             {
                 FileManager.CreateDirectory(programPath);
+                Debug.Log("Created directory: " + programPath);
             }
 
             string content = InitializeLogContent();
@@ -37,9 +36,9 @@ namespace SCSlauncher.Windows
         /// <param name="logLevel"></param>
         private static void AppendMessage(string logMessage, string logLevelString, int logLevel)
         {
-            if (logLevel >= 0 && logLevel <= Properties.Settings.Default.LogLevel)
+            if (logLevel >= 0 && logLevel <= Windows.Properties.Settings.Default.LogLevel)
             {
-                string message = DateTime.Now + "  " + logLevelString + ": " + logMessage + "\n";
+                string message = sw.Elapsed + "  " + logLevelString + ": " + logMessage + "\n";
                 File.AppendAllText(logPath, message);
             }
         }
@@ -60,15 +59,9 @@ namespace SCSlauncher.Windows
         /// <returns></returns>
         private static string InitializeLogContent()
         {
-            string initMessage = "************ | Log created on: " + DateTime.Now.ToString("dddd", cultureInfo) + ", " +
+            string initMessage = "****************  Log created on: " + DateTime.Now.ToString("dddd", cultureInfo) + ", " +
             DateTime.Now.ToString("dd MMMM yyyy", cultureInfo) + " @ " + DateTime.Now.ToString("T") + "\n" +
-            "==================================================================\n" +
-            "************" + " | " + "[CPU] " + "RYZEN" + "\n" +
-            "************" + " | " + "[RAM] " + "8192" + " MB" + "\n" +
-            "************" + " | " + "[GPU] " + "RTX 2060" + "\n" +
-            "************" + " | " + "[API] " + "COŚTAM" + "\n" +
-            "************" + " | " + "[OS] " + "Windows 10" + "\n" +
-            "------------------------------------------------------------------" + "\n";
+            "====================================================================\n";
 
             return initMessage;
         }

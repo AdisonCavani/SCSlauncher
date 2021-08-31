@@ -8,7 +8,7 @@ namespace SCSlauncher.Core.Commands
         readonly Action<object> _execute;
         readonly Predicate<object> _canExecute;
 
-        public RelayCommand(Action<object> execute) : this(execute, null) {}
+        public RelayCommand(Action<object> execute) : this(execute, null) { }
 
         public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {

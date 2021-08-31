@@ -1,11 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
-namespace SCSlauncher.Windows
+namespace SCSlauncher.Core
 {
     public class FileManager
     {
@@ -24,6 +19,7 @@ namespace SCSlauncher.Windows
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
+                Debug.Log("Creating directory: " + path);
             }
         }
     }

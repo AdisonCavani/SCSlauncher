@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using SCSlauncher.Core.Commands;
+using SCSlauncher.Windows;
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Shapes;
-using Newtonsoft.Json;
-using SCSlauncher.Core.Commands;
-using SCSlauncher.Windows;
 
 namespace SCSlauncher.Core.ViewModels
 {
@@ -15,32 +14,35 @@ namespace SCSlauncher.Core.ViewModels
     {
         public MainViewModel()
         {
+            //Windows.Properties.Settings.Default.LogLevel = 3;
+            //Windows.Properties.Settings.Default.Save();
             Debug.Initialize();
-            Debug.Log("Test");
-            Debug.LogWarning("Test");
-            Debug.LogException("Test");
-            Debug.LogError("Test");
+
             AddNumberCommand = new RelayCommand(AddNumber);
         }
 
         public ICommand AddNumberCommand { get; set; }
 
         static string docsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        string path = docsPath + "\\SCSlauncher\\profiles";
+        string path = docsPath + "\\SCS Launcher\\profiles";
 
         private void AddNumber(object obj)
         {
+            Debug.Log("Clicked");
             string json = JsonConvert.SerializeObject(profile, Formatting.Indented);
 
             if (FileManager.CheckForDirectory(path))
             {
                 File.WriteAllText(path + "\\profile.json", json);
+                Debug.Log("Created profile: " + path + "\\profile.json");
             }
 
             else
             {
+                Debug.Log("Program directory does not exist");
                 FileManager.CreateDirectory(path);
                 File.WriteAllText(path + "\\profile.json", json);
+                Debug.Log("Created profile: " + path + "\\profile.json");
             }
 
             Profile deProfile = JsonConvert.DeserializeObject<Profile>(json);
@@ -57,7 +59,7 @@ namespace SCSlauncher.Core.ViewModels
             conversionDump = false,
             conversionDumpPath = "",
             logFile = false,
-            logFilePath = "siema",
+            logFilePath = "test",
 
             ets = new Ets
             {
