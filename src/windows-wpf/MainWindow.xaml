@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Siema"  Content="Test" Command="{Binding AddNumberCommand}" CommandParameter="7"/>
+        <StackPanel>
+        <Button x:Name="Test"  Content="Test" Command="{Binding Test}" CommandParameter="One"/>
+        <Button x:Name="TestTwo" Content="TestTwo" Command="{Binding TestTwo}" CommandParameter="Two"/>
+        </StackPanel>
     </Grid>
 </Window>

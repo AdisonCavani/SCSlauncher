@@ -1,5 +1,4 @@
 ﻿using SCSlauncher.Core.Commands;
-using SCSlauncher.Windows;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -11,26 +10,37 @@ namespace SCSlauncher.Core.ViewModels
     {
         public MainViewModel()
         {
-            //Windows.Properties.Settings.Default.LogLevel = 3;
+            //Windows.Properties.Settings.Default.LogLevel = 4;
             //Windows.Properties.Settings.Default.Save();
             Debug.Initialize();
 
-            AddNumberCommand = new RelayCommand(AddNumber);
+            Test = new RelayCommand(TestOne);
+            TestTwo = new RelayCommand(TestTwoo);
         }
 
-        public ICommand AddNumberCommand { get; set; }
+        public ICommand Test { get; set; }
+        public ICommand TestTwo { get; set; }
 
         static string docsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string path = docsPath + "\\SCS Launcher\\profiles";
 
-        private void AddNumber(object obj)
+        private void TestOne(object obj)
         {
-            Debug.Log("Clicked");
+            Debug.Log("Clicked one");
 
             string serializedProfile = Json.SerializeProfile(profile);
             FileManager.CreateFile(path, "\\profile.json", serializedProfile);
+        }
+
+        private void TestTwoo(object obj)
+        {
+            Debug.Log("Clicked two");
 
             Profile deserializedProfile = Json.DeserializeProfile(path + "\\profile.json");
+
+            Profile validatedProfile = ValidateProfile.Validate(deserializedProfile);
+            string serializedProfile = Json.SerializeProfile(validatedProfile);
+            FileManager.CreateFile(path, "\\profile.json", serializedProfile);
         }
 
         Profile profile = new Profile
@@ -43,27 +53,25 @@ namespace SCSlauncher.Core.ViewModels
             conversionDump = false,
             conversionDumpPath = "",
             logFile = false,
-            logFilePath = "test",
+            logFilePath = "",
 
             ets = new Ets
             {
-                gameMode = "",
-                modActivation = "",
-                renderDevice = "",
-                vrMode = "",
-                logFile = "",
+                gameMode = 0,
+                modActivation = 0,
+                renderDevice = 0,
+                vrMode = 0,
+                logFile = 0,
                 editorStartingMap = "",
                 noIntro = false,
                 force64bit = false,
                 unmountUserMap = false,
                 useDefaultMemorySettings = false,
 
-                etsMemorySettings = new MemorySettings
+                memorySettings = new MemorySettings
                 {
-                    maxResourceSize = 0,
-                    maxTempBuffers = 0,
-                    poolSize = 0,
-                    maxMemory = 0,
+                    maxResourceSize = 22,
+                    maxTempBuffers = 112,
                 },
 
                 etsDlc = new EtsDlc
@@ -80,23 +88,21 @@ namespace SCSlauncher.Core.ViewModels
 
             ats = new Ats
             {
-                gameMode = "",
-                modActivation = "",
-                renderDevice = "",
-                vrMode = "",
-                logFile = "",
+                gameMode = 0,
+                modActivation = 0,
+                renderDevice = 0,
+                vrMode = 0,
+                logFile = 0,
                 editorStartingMap = "",
                 noIntro = false,
                 force64bit = false,
                 unmountUserMap = false,
                 useDefaultMemorySettings = false,
 
-                atsMemorySettings = new MemorySettings
+                memorySettings = new MemorySettings
                 {
-                    maxResourceSize = 0,
-                    maxTempBuffers = 0,
-                    poolSize = 0,
-                    maxMemory = 0,
+                    maxResourceSize = 22,
+                    maxTempBuffers = 112,
                 },
 
                 atsDlc = new AtsDlc

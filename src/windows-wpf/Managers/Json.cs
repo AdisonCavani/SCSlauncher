@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SCSlauncher.Windows;
 using System;
 using System.IO;
 
@@ -43,7 +42,6 @@ namespace SCSlauncher.Core
                     try
                     {
                         JsonSerializer serializer = new JsonSerializer();
-                        Debug.Log("Created new JSON Serializer");
                         Profile profile = (Profile)serializer.Deserialize(file, typeof(Profile));
                         Debug.Log("Deserialized profile: " + profile.profileName);
 

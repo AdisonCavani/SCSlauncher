@@ -69,6 +69,14 @@ namespace SCSlauncher.Core
 
         #region Debug.Log methods
         /// <summary>
+        /// Append message with type "Debug" to log file
+        /// </summary>
+        /// <param name="logMessage"></param>
+        public static void LogTrace(string logMessage)
+        {
+            AppendMessage(logMessage, "Debug", 4);
+        }
+        /// <summary>
         /// Append message with type "Info" to log file
         /// </summary>
         /// <param name="logMessage"></param>
