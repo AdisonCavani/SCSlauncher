@@ -60,8 +60,9 @@ namespace SCSlauncher.Core
         private static string InitializeLogContent()
         {
             string initMessage = "****************  Log created on: " + DateTime.Now.ToString("dddd", cultureInfo) + ", " +
-            DateTime.Now.ToString("dd MMMM yyyy", cultureInfo) + " @ " + DateTime.Now.ToString("T") + "\n" +
-            "====================================================================\n";
+            DateTime.Now.ToString("dd MMMM yyyy", cultureInfo) + " @ " + DateTime.Now.ToString("T");
+
+            initMessage += "\n" + new string('=', initMessage.Length) + "\n";
 
             return initMessage;
         }

@@ -1,11 +1,8 @@
-﻿using Newtonsoft.Json;
-using SCSlauncher.Core.Commands;
+﻿using SCSlauncher.Core.Commands;
 using SCSlauncher.Windows;
 using System;
 using System.ComponentModel;
-using System.IO;
 using System.Runtime.CompilerServices;
-using System.Windows;
 using System.Windows.Input;
 
 namespace SCSlauncher.Core.ViewModels
@@ -29,29 +26,16 @@ namespace SCSlauncher.Core.ViewModels
         private void AddNumber(object obj)
         {
             Debug.Log("Clicked");
-            string json = JsonConvert.SerializeObject(profile, Formatting.Indented);
 
-            if (FileManager.CheckForDirectory(path))
-            {
-                File.WriteAllText(path + "\\profile.json", json);
-                Debug.Log("Created profile: " + path + "\\profile.json");
-            }
+            string serializedProfile = Json.SerializeProfile(profile);
+            FileManager.CreateFile(path, "\\profile.json", serializedProfile);
 
-            else
-            {
-                Debug.Log("Program directory does not exist");
-                FileManager.CreateDirectory(path);
-                File.WriteAllText(path + "\\profile.json", json);
-                Debug.Log("Created profile: " + path + "\\profile.json");
-            }
-
-            Profile deProfile = JsonConvert.DeserializeObject<Profile>(json);
-            MessageBox.Show(deProfile.logFilePath);
+            Profile deserializedProfile = Json.DeserializeProfile(path + "\\profile.json");
         }
 
         Profile profile = new Profile
         {
-            profileName = "",
+            profileName = "Adison",
             profileImage = "",
             steamPath = "",
             homeDirectory = false,

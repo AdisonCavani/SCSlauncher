@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace SCSlauncher.Windows
+namespace SCSlauncher.Core
 {
     public class Run
     {
-        public static void Test(string fileName, string arg)
+        public static void RunGame(string fileName, string arg)
         {
             try
             {
-                Console.WriteLine("Trying to run ETS2");
+                Debug.Log("Running: " + fileName);
                 Process process = new Process();
                 process.StartInfo.FileName = fileName;
                 process.StartInfo.Arguments = arg;
                 process.Start();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine(ex.Message);
+                Debug.LogException(e.Message);
             }
         }
     }
