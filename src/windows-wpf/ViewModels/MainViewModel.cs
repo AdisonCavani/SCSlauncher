@@ -39,6 +39,9 @@ namespace SCSlauncher.Core.ViewModels
             Profile deserializedProfile = Json.DeserializeProfile(path + "\\profile.json");
 
             Profile validatedProfile = ValidateProfile.Validate(deserializedProfile);
+
+            Args.ParseArgsATS(validatedProfile);
+
             string serializedProfile = Json.SerializeProfile(validatedProfile);
             FileManager.CreateFile(path, "\\profile.json", serializedProfile);
         }
@@ -52,8 +55,6 @@ namespace SCSlauncher.Core.ViewModels
             homeDirectoryPath = "",
             conversionDump = false,
             conversionDumpPath = "",
-            logFile = false,
-            logFilePath = "",
 
             ets = new Ets
             {

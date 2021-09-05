@@ -9,8 +9,6 @@
         public object homeDirectoryPath { get; set; }
         public object conversionDump { get; set; }
         public object conversionDumpPath { get; set; }
-        public object logFile { get; set; }
-        public object logFilePath { get; set; }
         public Ets ets { get; set; }
         public Ats ats { get; set; }
     }

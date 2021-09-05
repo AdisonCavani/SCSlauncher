@@ -17,8 +17,6 @@
             profile.homeDirectoryPath = HomeDirectoryPath(profile.homeDirectoryPath);
             profile.conversionDump = ConversionDump(profile.conversionDump);
             profile.conversionDumpPath = ConversionDumpPath(profile.conversionDumpPath);
-            profile.logFile = LogFileBool(profile.logFile);
-            profile.logFilePath = LogFilePath(profile.logFilePath);
 
             // ETS settings
             profile.ets.gameMode = GameMode(profile.ets.gameMode);
@@ -135,30 +133,6 @@
             }
 
             Debug.LogWarning("Conversion dump path couldn't be validated. Falling back to default value");
-            return string.Empty;
-        }
-
-        private static bool LogFileBool(object logFile)
-        {
-            if (logFile is bool)
-            {
-                Debug.LogTrace("Log file bool validated: " + logFile);
-                return (bool)logFile;
-            }
-
-            Debug.LogWarning("Log file bool couldn't be validated. Falling back to default value: false");
-            return false;
-        }
-
-        private static string LogFilePath(object logFilePath)
-        {
-            if (logFilePath is string)
-            {
-                Debug.LogTrace("Log file path validated: " + logFilePath);
-                return logFilePath as string;
-            }
-
-            Debug.LogWarning("Log file path couldn't be validated. Falling back to default value");
             return string.Empty;
         }
         #endregion
