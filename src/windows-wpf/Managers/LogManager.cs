@@ -18,12 +18,6 @@ namespace SCSlauncher.Core
         /// </summary>
         public static void Initialize()
         {
-            if (!FileManager.CheckForDirectory(programPath))
-            {
-                FileManager.CreateDirectory(programPath);
-                Debug.Log("Created directory: " + programPath);
-            }
-
             string content = InitializeLogContent();
             CreateLog(programPath + logFile, content);
         }

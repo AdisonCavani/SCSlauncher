@@ -138,74 +138,59 @@
         #endregion
 
         #region ETS & ATS
-        private static long GameMode(object gameMode)
+        private static int GameMode(object gameMode)
         {
-            if (gameMode is long)
+            if (gameMode is int && (int)gameMode >= 0 && (int)gameMode <= 3)
             {
-                if ((long)gameMode >= 0 && (long)gameMode <= 3)
-                {
-                    Debug.LogTrace("Game mode validated: " + gameMode);
-                    return (long)gameMode;
-                }
+                Debug.LogTrace("Game mode validated: " + gameMode);
+                return (int)gameMode;
             }
 
             Debug.LogWarning("Game mode couldn't be validated. Falling back to default value: 0");
             return 0;
         }
 
-        private static long ModActivation(object modActivation)
+        private static int ModActivation(object modActivation)
         {
-            if (modActivation is long)
+            if (modActivation is int && (int)modActivation >= 0 && (int)modActivation <= 3)
             {
-                if ((long)modActivation >= 0 && (long)modActivation <= 3)
-                {
-                    Debug.LogTrace("Game mode validated: " + modActivation);
-                    return (long)modActivation;
-                }
+                Debug.LogTrace("Game mode validated: " + modActivation);
+                return (int)modActivation;
             }
             Debug.LogWarning("Mod activation couldn't be validated. Falling back to default value: 0");
             return 0;
         }
 
-        private static long RenderDevice(object renderDevice)
+        private static int RenderDevice(object renderDevice)
         {
-            if (renderDevice is long)
+            if (renderDevice is int && (int)renderDevice >= 0 && (int)renderDevice <= 1)
             {
-                if ((long)renderDevice >= 0 && (long)renderDevice <= 1)
-                {
-                    Debug.LogTrace("Render device validated: " + renderDevice);
-                    return (long)renderDevice;
-                }
+                Debug.LogTrace("Render device validated: " + renderDevice);
+                return (int)renderDevice;
             }
 
             Debug.LogWarning("Render device couldn't be validated. Falling back to default value: 0");
             return 0;
         }
 
-        private static long VrMode(object vrMode)
+        private static int VrMode(object vrMode)
         {
-            if (vrMode is long)
+            if (vrMode is int && (int)vrMode >= 0 && (int)vrMode <= 2)
             {
-                if ((long)vrMode >= 0 && (long)vrMode <= 2)
-                {
-                    Debug.LogTrace("VR mode validated: " + vrMode);
-                    return (long)vrMode;
-                }
+                Debug.LogTrace("VR mode validated: " + vrMode);
+                return (int)vrMode;
             }
 
             Debug.LogWarning("VR mode couldn't be validated. Falling back to default value: 0");
             return 0;
         }
 
-        private static long LogFileMode(object logFile)
+        private static int LogFileMode(object logFile)
         {
-            if (logFile is long)
+            if (logFile is int && (int)logFile >= 0 && (int)logFile <= 2)
             {
-                if ((long)logFile >= 0 && (long)logFile <= 2)
-                {
-                    Debug.LogTrace("Log file mode validated: " + logFile);
-                    return (long)logFile;
-                }
+                Debug.LogTrace("Log file mode validated: " + logFile);
+                return (int)logFile;
             }
 
             Debug.LogWarning("Log file string couldn't be validated. Falling back to default value: 0");
@@ -274,30 +259,24 @@
         #endregion
 
         #region MemorySettings
-        private static long MaxResourceSize(object maxResourceSize)
+        private static int MaxResourceSize(object maxResourceSize)
         {
-            if (maxResourceSize is long)
+            if (maxResourceSize is int && (int)maxResourceSize > 0 && (int)maxResourceSize <= 100)
             {
-                if ((long)maxResourceSize > 0 && (long)maxResourceSize <= 100)
-                {
-                    Debug.LogTrace("-mm_max_resource_size validated: " + maxResourceSize);
-                    return (long)maxResourceSize;
-                }
+                Debug.LogTrace("-mm_max_resource_size validated: " + maxResourceSize);
+                return (int)maxResourceSize;
             }
 
             Debug.LogWarning("-mm_max_resource_size couldn't be validated. Falling back to default value: 22");
             return 22;
         }
 
-        private static long MaxTempBuffers(object maxTempBuffers)
+        private static int MaxTempBuffers(object maxTempBuffers)
         {
-            if (maxTempBuffers is long)
+            if (maxTempBuffers is int && (int)maxTempBuffers > 0 && (int)maxTempBuffers <= 1000)
             {
-                if ((long)maxTempBuffers > 0 && (long)maxTempBuffers <= 1000)
-                {
-                    Debug.LogTrace("-mm_max_tmp_buffers_size validated: " + maxTempBuffers);
-                    return (long)maxTempBuffers;
-                }
+                Debug.LogTrace("-mm_max_tmp_buffers_size validated: " + maxTempBuffers);
+                return (int)maxTempBuffers;
             }
 
             Debug.LogWarning("-mm_max_tmp_buffers_size couldn't be validated. Falling back to default value: 112");

@@ -12,7 +12,7 @@ namespace SCSlauncher.Core.ViewModels
         {
             //Windows.Properties.Settings.Default.LogLevel = 4;
             //Windows.Properties.Settings.Default.Save();
-
+            FolderManager.Initialize();
             Debug.Initialize();
             ProfileManager.Initialize();
 
@@ -30,22 +30,14 @@ namespace SCSlauncher.Core.ViewModels
         {
             Debug.Log("Clicked one");
 
-            string serializedProfile = Json.SerializeProfile(profile);
-            FileManager.CreateFile(path, "\\profile.json", serializedProfile);
+            Profile validatedProfile = ValidateProfile.Validate(profile);
+            Args.ParseArgsATS(validatedProfile);
+            ProfileManager.CreateProfile(validatedProfile);
         }
 
         private void TestTwoo(object obj)
         {
             Debug.Log("Clicked two");
-
-            Profile deserializedProfile = Json.DeserializeProfile(path + "\\profile.json");
-
-            Profile validatedProfile = ValidateProfile.Validate(deserializedProfile);
-
-            Args.ParseArgsATS(validatedProfile);
-
-            string serializedProfile = Json.SerializeProfile(validatedProfile);
-            FileManager.CreateFile(path, "\\profile.json", serializedProfile);
         }
 
         Profile profile = new Profile
@@ -69,7 +61,7 @@ namespace SCSlauncher.Core.ViewModels
                 noIntro = false,
                 force64bit = false,
                 unmountUserMap = false,
-                useDefaultMemorySettings = false,
+                useDefaultMemorySettings = true,
 
                 memorySettings = new MemorySettings
                 {
@@ -100,7 +92,7 @@ namespace SCSlauncher.Core.ViewModels
                 noIntro = false,
                 force64bit = false,
                 unmountUserMap = false,
-                useDefaultMemorySettings = false,
+                useDefaultMemorySettings = true,
 
                 memorySettings = new MemorySettings
                 {

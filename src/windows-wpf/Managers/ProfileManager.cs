@@ -12,6 +12,20 @@ namespace SCSlauncher.Core
             LastProfileExist(Windows.Properties.Settings.Default.LastProfile);
         }
 
+        public static void CreateProfile(Profile profile)
+        {
+            string profileFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SCS Launcher\\profiles\\";
+            string json = Json.SerializeProfile(profile);
+            string uid = UserID.GenerateUserID();
+
+            while (FileManager.CheckForDirectory(profileFolder + uid))
+            {
+                uid = UserID.GenerateUserID();
+            }
+
+            FileManager.CreateFile(profileFolder + uid, "\\profile.json", json);
+        }
+
         private static bool LastProfileExist(string path)
         {
             if (File.Exists(path) && !string.IsNullOrWhiteSpace(path))
@@ -59,5 +73,6 @@ namespace SCSlauncher.Core
 
             return validProfiles.ToArray();
         }
+
     }
 }

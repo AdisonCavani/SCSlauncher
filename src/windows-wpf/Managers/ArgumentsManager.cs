@@ -60,7 +60,7 @@
         {
             if (game == 0)
             {
-                if ((long)profile.ats.gameMode == 1)
+                if ((int)profile.ats.gameMode == 1)
                 {
                     if (profile.ats.editorStartingMap.ToString().Length > 0)
                     {
@@ -69,7 +69,7 @@
                     return "-edit";
                 }
 
-                else if ((long)profile.ats.gameMode == 2)
+                else if ((int)profile.ats.gameMode == 2)
                 {
                     if (profile.ats.editorStartingMap.ToString().Length > 0)
                     {
@@ -78,7 +78,7 @@
                     return "-edit" + "-sound";
                 }
 
-                else if ((long)profile.ats.gameMode == 3)
+                else if ((int)profile.ats.gameMode == 3)
                 {
                     return "-validate";
                 }
@@ -86,7 +86,7 @@
 
             else if (game == 1)
             {
-                if ((long)profile.ets.gameMode == 1)
+                if ((int)profile.ets.gameMode == 1)
                 {
                     if (profile.ets.editorStartingMap.ToString().Length > 0)
                     {
@@ -95,7 +95,7 @@
                     return "-edit";
                 }
 
-                else if ((long)profile.ets.gameMode == 2)
+                else if ((int)profile.ets.gameMode == 2)
                 {
                     if (profile.ets.editorStartingMap.ToString().Length > 0)
                     {
@@ -104,7 +104,7 @@
                     return "-edit" + "-sound";
                 }
 
-                else if ((long)profile.ets.gameMode == 3)
+                else if ((int)profile.ets.gameMode == 3)
                 {
                     return "-validate";
                 }
@@ -117,22 +117,22 @@
         {
             if (game == 0)
             {
-                if ((long)profile.ats.modActivation == 1)
+                if ((int)profile.ats.modActivation == 1)
                 {
                     return "-force_mods";
                 }
 
-                else if ((long)profile.ats.modActivation == 2)
+                else if ((int)profile.ats.modActivation == 2)
                 {
                     return "-force_mods" + "-noworkshop";
                 }
 
-                else if ((long)profile.ats.modActivation == 3)
+                else if ((int)profile.ats.modActivation == 3)
                 {
                     return "-noworkshop";
                 }
 
-                else if ((long)profile.ats.modActivation == 4)
+                else if ((int)profile.ats.modActivation == 4)
                 {
                     return "-pure";
                 }
@@ -140,22 +140,22 @@
 
             else if (game == 1)
             {
-                if ((long)profile.ets.modActivation == 1)
+                if ((int)profile.ets.modActivation == 1)
                 {
                     return "-force_mods";
                 }
 
-                else if ((long)profile.ets.modActivation == 2)
+                else if ((int)profile.ets.modActivation == 2)
                 {
                     return "-force_mods" + "-noworkshop";
                 }
 
-                else if ((long)profile.ets.modActivation == 3)
+                else if ((int)profile.ets.modActivation == 3)
                 {
                     return "-noworkshop";
                 }
 
-                else if ((long)profile.ets.modActivation == 4)
+                else if ((int)profile.ets.modActivation == 4)
                 {
                     return "-pure";
                 }
@@ -168,12 +168,12 @@
         {
             if (game == 0)
             {
-                if ((long)profile.ats.renderDevice == 0)
+                if ((int)profile.ats.renderDevice == 0)
                 {
                     return "-rdevice dx11";
                 }
 
-                else if ((long)profile.ats.renderDevice == 1)
+                else if ((int)profile.ats.renderDevice == 1)
                 {
                     return "-rdevice gl";
                 }
@@ -181,12 +181,12 @@
 
             else if (game == 1)
             {
-                if ((long)profile.ets.renderDevice == 0)
+                if ((int)profile.ets.renderDevice == 0)
                 {
                     return "-rdevice dx11";
                 }
 
-                else if ((long)profile.ets.renderDevice == 1)
+                else if ((int)profile.ets.renderDevice == 1)
                 {
                     return "-rdevice gl";
                 }
@@ -199,12 +199,12 @@
         {
             if (game == 0)
             {
-                if ((long)profile.ats.vrMode == 1)
+                if ((int)profile.ats.vrMode == 1)
                 {
                     return "-openvr";
                 }
 
-                else if ((long)profile.ats.vrMode == 2)
+                else if ((int)profile.ats.vrMode == 2)
                 {
                     return "-oculus";
                 }
@@ -212,12 +212,12 @@
 
             else if (game == 1)
             {
-                if ((long)profile.ets.vrMode == 1)
+                if ((int)profile.ets.vrMode == 1)
                 {
                     return "-openvr";
                 }
 
-                else if ((long)profile.ets.vrMode == 2)
+                else if ((int)profile.ets.vrMode == 2)
                 {
                     return "-oculus";
                 }
@@ -230,12 +230,12 @@
         {
             if (game == 0)
             {
-                if ((long)profile.ats.logFile == 1)
+                if ((int)profile.ats.logFile == 1)
                 {
                     return "-unlimitedlog";
                 }
 
-                else if ((long)profile.ats.logFile == 2)
+                else if ((int)profile.ats.logFile == 2)
                 {
                     return "-nofilelog";
                 }
@@ -243,12 +243,12 @@
 
             else if (game == 1)
             {
-                if ((long)profile.ets.logFile == 1)
+                if ((int)profile.ets.logFile == 1)
                 {
                     return "-unlimitedlog";
                 }
 
-                else if ((long)profile.ets.logFile == 2)
+                else if ((int)profile.ets.logFile == 2)
                 {
                     return "-nofilelog";
                 }
