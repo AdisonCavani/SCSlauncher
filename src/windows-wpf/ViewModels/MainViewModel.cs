@@ -12,7 +12,9 @@ namespace SCSlauncher.Core.ViewModels
         {
             //Windows.Properties.Settings.Default.LogLevel = 4;
             //Windows.Properties.Settings.Default.Save();
+
             Debug.Initialize();
+            ProfileManager.Initialize();
 
             Test = new RelayCommand(TestOne);
             TestTwo = new RelayCommand(TestTwoo);
