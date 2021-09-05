@@ -1,4 +1,6 @@
-﻿namespace SCSlauncher.Core
+﻿using System.Text.RegularExpressions;
+
+namespace SCSlauncher.Core
 {
     public class Args
     {
@@ -21,7 +23,7 @@
             arg += ConversionDump(profile);
 
             // Add space between '-' character
-            arg = System.Text.RegularExpressions.Regex.Replace(arg, "-", " $0"); 
+            arg = RegexStatic.Replace(arg, " $0");
             // Remove first character - space
             arg = arg.Substring(1);
 
@@ -48,7 +50,7 @@
             arg += ConversionDump(profile);
 
             // Add space between '-' character
-            arg = System.Text.RegularExpressions.Regex.Replace(arg, "-", " $0");
+            arg = RegexStatic.Replace(arg, " $0");
             // Remove first character - space
             arg = arg.Substring(1);
 
@@ -336,5 +338,7 @@
 
             return string.Empty;
         }
+
+        private static readonly Regex RegexStatic = new("-", RegexOptions.Compiled);
     }
 }
