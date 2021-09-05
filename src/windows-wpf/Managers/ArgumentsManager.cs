@@ -1,4 +1,4 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Text;
 
 namespace SCSlauncher.Core
 {
@@ -23,9 +23,7 @@ namespace SCSlauncher.Core
             arg += ConversionDump(profile);
 
             // Add space between '-' character
-            arg = RegexStatic.Replace(arg, " $0");
-            // Remove first character - space
-            arg = arg.Substring(1);
+            arg = AppendSpace(arg);
 
             Debug.LogTrace(arg);
             return arg;
@@ -50,9 +48,7 @@ namespace SCSlauncher.Core
             arg += ConversionDump(profile);
 
             // Add space between '-' character
-            arg = RegexStatic.Replace(arg, " $0");
-            // Remove first character - space
-            arg = arg.Substring(1);
+            arg = AppendSpace(arg);
 
             Debug.LogTrace(arg);
             return arg;
@@ -339,6 +335,19 @@ namespace SCSlauncher.Core
             return string.Empty;
         }
 
-        private static readonly Regex RegexStatic = new("-", RegexOptions.Compiled);
+        private static string AppendSpace(string text)
+        {
+            StringBuilder newText = new StringBuilder(text.Length * 2);
+            newText.Append(text[0]);
+
+            for (int i = 1; i < text.Length; i++)
+            {
+                if (text[i] == '-' && text[i - 1] != ' ')
+                    newText.Append(' ');
+                newText.Append(text[i]);
+            }
+
+            return newText.ToString();
+        }
     }
 }
