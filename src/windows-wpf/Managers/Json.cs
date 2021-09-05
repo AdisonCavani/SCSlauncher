@@ -16,7 +16,7 @@ namespace SCSlauncher.Core
             try
             {
                 string json = JsonConvert.SerializeObject(profile, Formatting.Indented);
-                Debug.Log("Serialized profile: " + profile.profileName);
+                Debug.Log($"Serialized profile: \"{profile.profileName}\"");
 
                 return json;
             }
@@ -43,7 +43,7 @@ namespace SCSlauncher.Core
                     {
                         JsonSerializer serializer = new JsonSerializer();
                         Profile profile = (Profile)serializer.Deserialize(file, typeof(Profile));
-                        Debug.Log("Deserialized profile: " + profile.profileName);
+                        Debug.Log($"Deserialized profile: \"{profile.profileName}\"");
 
                         return profile;
                     }

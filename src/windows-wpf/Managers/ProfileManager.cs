@@ -63,12 +63,12 @@ namespace SCSlauncher.Core
 
             foreach (var profile in validProfiles)
             {
-                Debug.Log("Found valid profile: \"" + profile + "\"");
+                Debug.Log($"Found valid profile: \"{profile}\"");
             }
 
             foreach (var profile in notValidProfiles)
             {
-                Debug.LogWarning("Missing profile.json in: \"" + profile + "\"");
+                Debug.LogWarning($"Missing profile.json in: \"{profile}\"");
             }
 
             return validProfiles.ToArray();

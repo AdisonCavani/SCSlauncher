@@ -9,7 +9,7 @@ namespace SCSlauncher.Core
         {
             try
             {
-                Debug.Log("Running ETS2: " + fileName);
+                Debug.Log("Running ETS2 \"{fileName}\"");
                 Process process = new Process();
                 process.StartInfo.FileName = fileName;
                 process.StartInfo.Arguments = arg;
@@ -25,7 +25,7 @@ namespace SCSlauncher.Core
         {
             try
             {
-                Debug.Log("Running ATS: " + fileName);
+                Debug.Log($"Running ATS: \"{fileName}\"");
                 Process process = new Process();
                 process.StartInfo.FileName = fileName;
                 process.StartInfo.Arguments = arg;

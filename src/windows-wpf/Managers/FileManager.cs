@@ -27,7 +27,7 @@ namespace SCSlauncher.Core
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
-                Debug.Log("Created directory: \"" + path + "\"");
+                Debug.Log($"Created directory: \"{path}\"");
             }
         }
 
@@ -42,14 +42,14 @@ namespace SCSlauncher.Core
             if (FileManager.CheckForDirectory(path))
             {
                 File.WriteAllText(path + fileName, content);
-                Debug.Log("Created file: \"" + path + fileName + "\"");
+                Debug.Log($"Created file: \"{path}{fileName}\"");
             }
 
             else
             {
                 FileManager.CreateDirectory(path);
                 File.WriteAllText(path + fileName, content);
-                Debug.Log("Created file: \"" + path + fileName + "\"");
+                Debug.Log($"Created file: \"{path}{fileName}\"");
             }
         }
     }

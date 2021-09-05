@@ -56,7 +56,7 @@
         {
             if (profileName is string)
             {
-                Debug.LogTrace("Profile name validated: " + profileName);
+                Debug.LogTrace($"Profile name validated: {profileName}");
                 return profileName as string;
             }
 
@@ -68,7 +68,7 @@
         {
             if (profileImage is string)
             {
-                Debug.LogTrace("Profile image validated: " + profileImage);
+                Debug.LogTrace($"Profile image validated: {profileImage}");
                 return profileImage as string;
             }
 
@@ -80,7 +80,7 @@
         {
             if (steamPath is string)
             {
-                Debug.LogTrace("Steam path validated: " + steamPath);
+                Debug.LogTrace($"Steam path validated: {steamPath}");
                 return steamPath as string;
             }
 
@@ -92,7 +92,7 @@
         {
             if (homeDirectory is bool)
             {
-                Debug.LogTrace("Home directory path validated: " + homeDirectory);
+                Debug.LogTrace($"Home directory path validated: {homeDirectory}");
                 return (bool)homeDirectory;
             }
 
@@ -104,7 +104,7 @@
         {
             if (homeDirectoryPath is string)
             {
-                Debug.LogTrace("Home directory path validated: " + homeDirectoryPath);
+                Debug.LogTrace($"Home directory path validated: {homeDirectoryPath}");
                 return homeDirectoryPath as string;
             }
 
@@ -116,7 +116,7 @@
         {
             if (conversionDump is bool)
             {
-                Debug.LogTrace("Conversion dump validated: " + conversionDump);
+                Debug.LogTrace($"Conversion dump validated: {conversionDump}");
                 return (bool)conversionDump;
             }
 
@@ -128,7 +128,7 @@
         {
             if (conversionDumpPath is string)
             {
-                Debug.LogTrace("Conversion dump path validated: " + conversionDumpPath);
+                Debug.LogTrace($"Conversion dump path validated: {conversionDumpPath}");
                 return conversionDumpPath as string;
             }
 
@@ -142,7 +142,7 @@
         {
             if (gameMode is int && (int)gameMode >= 0 && (int)gameMode <= 3)
             {
-                Debug.LogTrace("Game mode validated: " + gameMode);
+                Debug.LogTrace($"Game mode validated: {gameMode}");
                 return (int)gameMode;
             }
 
@@ -154,7 +154,7 @@
         {
             if (modActivation is int && (int)modActivation >= 0 && (int)modActivation <= 3)
             {
-                Debug.LogTrace("Game mode validated: " + modActivation);
+                Debug.LogTrace($"Game mode validated: {modActivation}");
                 return (int)modActivation;
             }
             Debug.LogWarning("Mod activation couldn't be validated. Falling back to default value: 0");
@@ -165,7 +165,7 @@
         {
             if (renderDevice is int && (int)renderDevice >= 0 && (int)renderDevice <= 1)
             {
-                Debug.LogTrace("Render device validated: " + renderDevice);
+                Debug.LogTrace($"Render device validated: {renderDevice}");
                 return (int)renderDevice;
             }
 
@@ -177,7 +177,7 @@
         {
             if (vrMode is int && (int)vrMode >= 0 && (int)vrMode <= 2)
             {
-                Debug.LogTrace("VR mode validated: " + vrMode);
+                Debug.LogTrace($"VR mode validated: {vrMode}");
                 return (int)vrMode;
             }
 
@@ -189,7 +189,7 @@
         {
             if (logFile is int && (int)logFile >= 0 && (int)logFile <= 2)
             {
-                Debug.LogTrace("Log file mode validated: " + logFile);
+                Debug.LogTrace($"Log file mode validated: {logFile}");
                 return (int)logFile;
             }
 
@@ -201,7 +201,7 @@
         {
             if (editorStartingMap is string)
             {
-                Debug.LogTrace("Editor starting map validated: " + editorStartingMap);
+                Debug.LogTrace($"Editor starting map validated: {editorStartingMap}");
                 return editorStartingMap as string;
             }
 
@@ -213,7 +213,7 @@
         {
             if (noIntro is bool)
             {
-                Debug.LogTrace("No intro validated: " + noIntro);
+                Debug.LogTrace($"No intro validated: {noIntro}");
                 return (bool)noIntro;
             }
 
@@ -225,7 +225,7 @@
         {
             if (force64bit is bool)
             {
-                Debug.LogTrace("Force 64 bit validated: " + force64bit);
+                Debug.LogTrace($"Force 64 bit validated: {force64bit}");
                 return (bool)force64bit;
             }
 
@@ -237,7 +237,7 @@
         {
             if (unmountUserMap is bool)
             {
-                Debug.LogTrace("Unmount user map validated: " + unmountUserMap);
+                Debug.LogTrace($"Unmount user map validated: {unmountUserMap}");
                 return (bool)unmountUserMap;
             }
 
@@ -249,7 +249,7 @@
         {
             if (useDefaultMemorySettings is bool)
             {
-                Debug.LogTrace("Use default memory settings validated: " + useDefaultMemorySettings);
+                Debug.LogTrace($"Use default memory settings validated: {useDefaultMemorySettings}");
                 return (bool)useDefaultMemorySettings;
             }
 
@@ -263,7 +263,7 @@
         {
             if (maxResourceSize is int && (int)maxResourceSize > 0 && (int)maxResourceSize <= 100)
             {
-                Debug.LogTrace("-mm_max_resource_size validated: " + maxResourceSize);
+                Debug.LogTrace($"-mm_max_resource_size validated: {maxResourceSize}");
                 return (int)maxResourceSize;
             }
 
@@ -275,7 +275,7 @@
         {
             if (maxTempBuffers is int && (int)maxTempBuffers > 0 && (int)maxTempBuffers <= 1000)
             {
-                Debug.LogTrace("-mm_max_tmp_buffers_size validated: " + maxTempBuffers);
+                Debug.LogTrace($"-mm_max_tmp_buffers_size validated: {maxTempBuffers}");
                 return (int)maxTempBuffers;
             }
 
