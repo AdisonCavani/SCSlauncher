@@ -32,7 +32,7 @@ namespace SCSlauncher.Core
         {
             if (logLevel >= 0 && logLevel <= Windows.Properties.Settings.Default.LogLevel)
             {
-                string message = sw.Elapsed + "  " + logLevelString + ": " + logMessage + "\n";
+                string message = sw.Elapsed.ToString("hh\\:mm\\:ss\\.fff") + "  " + logLevelString + ": " + logMessage + "\n";
                 File.AppendAllText(logPath, message);
             }
         }
@@ -53,7 +53,7 @@ namespace SCSlauncher.Core
         /// <returns></returns>
         private static string InitializeLogContent()
         {
-            string initMessage = $"****************  Log created on: {DateTime.Now.ToString("dddd", cultureInfo)}, {DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)} @ {DateTime.Now.ToString("T")}";
+            string initMessage = $"************  Log created on: {DateTime.Now.ToString("dddd", cultureInfo)}, {DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)} @ {DateTime.Now.ToString("T")}";
 
             initMessage += "\n" + new string('=', initMessage.Length) + "\n";
 
