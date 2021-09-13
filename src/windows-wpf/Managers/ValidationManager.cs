@@ -82,7 +82,7 @@
             {
                 if (string.IsNullOrWhiteSpace((string)steamPath))
                 {
-                    Debug.LogError("Steam path cannot be empty! Returning default Steam path");
+                    Debug.LogWarning("Steam path cannot be empty! Falling back to default value");
                     return "C:\\Program Files (x86)\\Steam\\steam.exe";
                 }
 
@@ -90,8 +90,8 @@
                 return steamPath as string;
             }
 
-            Debug.LogError("Steam path couldn't be validated. Falling back to default value");
-            return string.Empty;
+            Debug.LogWarning("Steam path couldn't be validated. Falling back to default value");
+            return "C:\\Program Files (x86)\\Steam\\steam.exe";
         }
 
         private static bool HomeDirectory(object homeDirectory)
