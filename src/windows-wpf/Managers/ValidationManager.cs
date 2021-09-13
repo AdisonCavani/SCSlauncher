@@ -80,11 +80,17 @@
         {
             if (steamPath is string)
             {
+                if (string.IsNullOrWhiteSpace((string)steamPath))
+                {
+                    Debug.LogError("Steam path cannot be empty! Returning default Steam path");
+                    return "C:\\Program Files (x86)\\Steam\\steam.exe";
+                }
+
                 Debug.LogTrace($"Steam path validated: {steamPath}");
                 return steamPath as string;
             }
 
-            Debug.LogWarning("Steam path couldn't be validated. Falling back to default value");
+            Debug.LogError("Steam path couldn't be validated. Falling back to default value");
             return string.Empty;
         }
 

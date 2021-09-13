@@ -8,13 +8,13 @@ namespace SCSlauncher.Core
     {
         public static void Initialize()
         {
-            GetProfileList(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SCS Launcher\\profiles\\");
+            GetProfileList(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SCS Launcher\profiles\");
             LastProfileExist(Windows.Properties.Settings.Default.LastProfile);
         }
 
         public static void CreateProfile(Profile profile)
         {
-            string profileFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SCS Launcher\\profiles\\";
+            string profileFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SCS Launcher\profiles\";
             string json = Json.SerializeProfile(profile);
             string uid = UserID.GenerateUserID();
 
@@ -23,7 +23,7 @@ namespace SCSlauncher.Core
                 uid = UserID.GenerateUserID();
             }
 
-            FileManager.CreateFile(profileFolder + uid, "\\profile.json", json);
+            FileManager.CreateFile(profileFolder + uid, @"\profile.json", json);
         }
 
         private static bool LastProfileExist(string path)
@@ -50,12 +50,12 @@ namespace SCSlauncher.Core
 
             foreach (var profile in profiles)
             {
-                if (File.Exists(profile + "\\profile.json"))
+                if (File.Exists(profile + @"\profile.json"))
                 {
                     validProfiles.Add(profile);
                 }
 
-                if (!File.Exists(profile + "\\profile.json"))
+                if (!File.Exists(profile + @"\profile.json"))
                 {
                     notValidProfiles.Add(profile);
                 }

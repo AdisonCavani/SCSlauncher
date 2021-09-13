@@ -8,8 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-        <Button x:Name="Test"  Content="Test" Command="{Binding Test}" CommandParameter="One"/>
-        <Button x:Name="TestTwo" Content="TestTwo" Command="{Binding TestTwo}" CommandParameter="Two"/>
+            <Button x:Name="Test"  Content="Test" Command="{Binding OneCommand}" CommandParameter="One"/>
+            <Button x:Name="TestTwo" Content="TestTwo" Command="{Binding TwoCommand}" CommandParameter="Two"/>
+            <Button x:Name="LaunchGame" Content="LaunchGame" Command="{Binding LaunchGameCommand}" CommandParameter="ets"/>
         </StackPanel>
     </Grid>
 </Window>

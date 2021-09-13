@@ -5,11 +5,13 @@ namespace SCSlauncher.Core
 {
     public class RunGame
     {
-        public static void RunETS(string fileName, string arg)
+        public static void ATS(string fileName, string arg)
         {
             try
             {
-                Debug.Log("Running ETS2 \"{fileName}\"");
+                Debug.Log("Launching ATS");
+                Debug.Log($"Steam path: \"{fileName}\"");
+                Debug.Log($"Arguments: \"{arg}\"");
                 Process process = new Process();
                 process.StartInfo.FileName = fileName;
                 process.StartInfo.Arguments = arg;
@@ -21,11 +23,13 @@ namespace SCSlauncher.Core
             }
         }
 
-        public static void RunATS(string fileName, string arg)
+        public static void ETS(string fileName, string arg)
         {
             try
             {
-                Debug.Log($"Running ATS: \"{fileName}\"");
+                Debug.Log($"Launching ETS2");
+                Debug.Log($"Steam path: \"{fileName}\"");
+                Debug.Log($"Arguments: \"{arg}\"");
                 Process process = new Process();
                 process.StartInfo.FileName = fileName;
                 process.StartInfo.Arguments = arg;
@@ -36,5 +40,6 @@ namespace SCSlauncher.Core
                 Debug.LogException(e.Message);
             }
         }
+
     }
 }

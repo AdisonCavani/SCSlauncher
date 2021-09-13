@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Input;
 
 namespace SCSlauncher.Core.ViewModels
@@ -12,21 +13,24 @@ namespace SCSlauncher.Core.ViewModels
         {
             //Windows.Properties.Settings.Default.LogLevel = 4;
             //Windows.Properties.Settings.Default.Save();
-            FolderManager.Initialize();
-            Debug.Initialize();
-            ProfileManager.Initialize();
 
-            Test = new RelayCommand(TestOne);
-            TestTwo = new RelayCommand(TestTwoo);
+            FolderManager.Initialize();
+
+            OneCommand = new RelayCommand(One);
+            TwoCommand = new RelayCommand(Two);
+            LaunchGameCommand = new RelayCommand(LaunchGame);
         }
 
-        public ICommand Test { get; set; }
-        public ICommand TestTwo { get; set; }
+        #region Commands
+        public ICommand OneCommand { get; set; }
+        public ICommand TwoCommand { get; set; }
+        public ICommand LaunchGameCommand { get; set; }
+        #endregion
 
         static string docsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        string path = docsPath + "\\SCS Launcher\\profiles";
+        string path = docsPath + @"\SCS Launcher\profiles";
 
-        private void TestOne(object obj)
+        private void One(object obj)
         {
             Debug.Log("Clicked one");
 
@@ -35,9 +39,29 @@ namespace SCSlauncher.Core.ViewModels
             ProfileManager.CreateProfile(validatedProfile);
         }
 
-        private void TestTwoo(object obj)
+        private void Two(object obj)
         {
             Debug.Log("Clicked two");
+            MessageBox.Show(ProcessManager.IsRunning("eurotrucks2").ToString());
+        }
+
+        private void LaunchGame(object obj)
+        {
+            Profile validatedProfile = ValidateProfile.Validate(profile);
+
+            if ((string)obj == "ats")
+            {
+                string arg = Args.ParseArgsATS(validatedProfile);
+                Debug.Log($"Using profile: \"{profile.profileName}\"");
+                RunGame.ATS((string)validatedProfile.steamPath, arg);
+            }
+
+            else if ((string)obj == "ets")
+            {
+                string arg = Args.ParseArgsETS(validatedProfile);
+                Debug.Log($"Using profile: \"{profile.profileName}\"");
+                RunGame.ETS((string)validatedProfile.steamPath, arg);
+            }
         }
 
         Profile profile = new Profile

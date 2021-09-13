@@ -8,8 +8,8 @@ namespace SCSlauncher.Core
     public static class Debug
     {
         public static Stopwatch sw = Stopwatch.StartNew();
-        private static string programPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\SCS Launcher";
-        private static string logFile = "\\app.log";
+        private static string programPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SCS Launcher";
+        private static string logFile = @"\app.log";
         private static string logPath = programPath + logFile;
         private static CultureInfo cultureInfo = new CultureInfo("en-US", false); // Date formatting to English
 
