@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 
@@ -22,6 +23,12 @@ namespace SCSlauncher.Core.ViewModels
             LaunchGameCommand = new RelayCommand(LaunchGame);
         }
 
+        public static bool atsRunning;
+        public static bool etsRunning;
+
+        Timer atsTimer = new Timer(e => atsRunning = ProcessManager.IsRunning("americantrucksimulator"), null, TimeSpan.Zero, TimeSpan.FromSeconds(Windows.Properties.Settings.Default.RefreshTime));
+        Timer etsTimer = new Timer(e => etsRunning = ProcessManager.IsRunning("eurotrucks2"), null, TimeSpan.Zero, TimeSpan.FromSeconds(Windows.Properties.Settings.Default.RefreshTime));
+
         // Currently loaded profile
         public static Profile currentProfile = new Profile();
 
@@ -38,7 +45,9 @@ namespace SCSlauncher.Core.ViewModels
         {
             Debug.Log("Clicked one");
 
-            ProfileManager.Refresh();
+            MessageBox.Show(etsRunning.ToString());
+
+            //ProfileManager.Refresh();
 
             //Profile validatedProfile = ValidateProfile.Validate(profile);
             //Args.ParseArgsATS(validatedProfile);

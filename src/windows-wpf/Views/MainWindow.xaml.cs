@@ -1,5 +1,4 @@
 ﻿using SCSlauncher.Core.ViewModels;
-using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
