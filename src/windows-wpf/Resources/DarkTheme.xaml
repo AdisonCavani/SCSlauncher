@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region Colors-->
+    <SolidColorBrush x:Key="Background" Color="#131415"/>
+    <SolidColorBrush x:Key="Foreground" Color="White"/>
+    <Color x:Key="BrightRedColor" R="252" G="87" B="83" A="255"/>
+    <Color x:Key="RedColor" R="223" G="71" B="68" A="255"/>
+    <Color x:Key="DarkRedColor" R="126" G="5" B="8" A="255"/>
+    <Color x:Key="BrightYellowColor" R="253" G="188" B="64" A="255"/>
+    <Color x:Key="YellowColor" R="222" G="159" B="52" A="255"/>
+    <Color x:Key="DarkYellowColor" R="152" G="87" B="18" A="255"/>
+    <SolidColorBrush x:Key="BrightRed" Color="#fc5753"/>
+    <SolidColorBrush x:Key="Red" Color="#df4744"/>
+    <SolidColorBrush x:Key="DarkRed" Color="#7e0508"/>
+    <SolidColorBrush x:Key="BrightYellow" Color="#fdbc40"/>
+    <SolidColorBrush x:Key="Yellow" Color="#de9f34"/>
+    <SolidColorBrush x:Key="DarkYellow" Color="#985712"/>
+    <!--#endregion-->
+    
+</ResourceDictionary>

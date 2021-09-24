@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--#region Colors-->
+    <SolidColorBrush x:Key="Background" Color="#f9f9f9"/>
+    <SolidColorBrush x:Key="Background2" Color="#ffffff"/>
+    <SolidColorBrush x:Key="Foreground" Color="#142533"/>
+    <SolidColorBrush x:Key="MainColor" Color="#f2f2f2"/>
+    <SolidColorBrush x:Key="MainColorLight" Color="#9b9b9b"/>
+    <SolidColorBrush x:Key="ButtonMouseOver" Color="#dddad7"/>
+    <SolidColorBrush x:Key="ButtonPressed" Color="#dddad7"/>
+    <SolidColorBrush x:Key="MenuButtonDarkGray" Color="#f9f9f9"/>
+    <SolidColorBrush x:Key="MenuButtonPressed" Color="#f9f9f9"/>
+    <SolidColorBrush x:Key="MenuButtonIcon" Color="#6490f1"/>
+    <SolidColorBrush x:Key="ControlButtonMouseOver" Color="#edeae6"/>
+    <SolidColorBrush x:Key="ControlButtonPressed" Color="#dddad7"/>
+    <SolidColorBrush x:Key="SelectionBrush" Color="#0c0c0d"/>
+    <SolidColorBrush x:Key="SettingsTextForeground" Color="#a4a5a5"/>
+    <SolidColorBrush x:Key="SettingsButtonBackground" Color="#eaeff9"/>
+    <SolidColorBrush x:Key="SettingsButtonBackgroundMouseOver" Color="Transparent"/>
+    <SolidColorBrush x:Key="SettingsButtonForeground" Color="#a4a4a4"/>
+    <SolidColorBrush x:Key="SettingsButtonForegroundPressed" Color="#6490f1"/>
+    <SolidColorBrush x:Key="SettingsPathBackground" Color="#e0e9fc"/>
+    <SolidColorBrush x:Key="SettingsPathForeground" Color="#6490f1"/>
+    <SolidColorBrush x:Key="SeparatorColor" Color="#f2f2f2"/>
+    <SolidColorBrush x:Key="TextBoxBorderBrush" Color="#ebebeb"/>
+    <SolidColorBrush x:Key="TextBoxBorderBrushFocus" Color="#d0d0d0"/>
+    <SolidColorBrush x:Key="Scrollbar" Color="#c1c1c1"/>
+    <SolidColorBrush x:Key="ScrollbarOnHover" Color="#8f8f8f"/>
+    <SolidColorBrush x:Key="ToggleBackgroundOff" Color="#eeeeee"/>
+    <SolidColorBrush x:Key="ToggleBackgroundOn" Color="#5790f9"/>
+    <SolidColorBrush x:Key="ComboboxMouseOver" Color="#bebebc"/>
+    <SolidColorBrush x:Key="ComboboxPressed" Color="#8aa2cc"/>
+    <SolidColorBrush x:Key="ComboboxItemMouseOver" Color="#eaeaec"/>
+    <!--#endregion-->
+    
+</ResourceDictionary>

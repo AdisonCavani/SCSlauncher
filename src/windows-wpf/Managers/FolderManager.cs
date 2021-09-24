@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Security.AccessControl;
+using System.Security.Principal;
+using System.Threading.Tasks;
+using System.Windows.Automation;
 
 namespace SCSlauncher.Core
 {
@@ -28,23 +33,6 @@ namespace SCSlauncher.Core
 
             Debug.Initialize();
             ProfileManager.Initialize();
-            LockAllFiles();
-        }
-
-        public static void LockAllFiles()
-        {
-            var files = Directory.GetFiles(programFolder, "*", SearchOption.AllDirectories);
-            foreach (var file in files)
-            {
-                File.Open(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                Debug.LogTrace($"Locked file: \"{file}\"");
-            }
-        }
-
-        public static void LockFile(string filePath)
-        {
-            File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            Debug.LogTrace($"Locked file: \"{filePath}\"");
         }
     }
 }

@@ -32,7 +32,7 @@ namespace SCSlauncher.Core
         }
 
         /// <summary>
-        /// Create file with content and lock it
+        /// Create file with content
         /// </summary>
         /// <param name="path"></param>
         /// <param name="fileName"></param>
@@ -43,7 +43,6 @@ namespace SCSlauncher.Core
             {
                 File.WriteAllText(path + fileName, content);
                 Debug.Log($"Created file: \"{path}{fileName}\"");
-                FolderManager.LockFile(path + fileName);
             }
 
             else
@@ -51,7 +50,6 @@ namespace SCSlauncher.Core
                 FileManager.CreateDirectory(path);
                 File.WriteAllText(path + fileName, content);
                 Debug.Log($"Created file: \"{path}{fileName}\"");
-                FolderManager.LockFile(path + fileName);
             }
         }
     }

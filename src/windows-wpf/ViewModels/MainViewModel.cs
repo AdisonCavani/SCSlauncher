@@ -13,6 +13,7 @@ namespace SCSlauncher.Core.ViewModels
         {
             //Windows.Properties.Settings.Default.LogLevel = 4;
             //Windows.Properties.Settings.Default.Save();
+            Windows.Properties.Settings.Default.LastProfile = @"C:\Users\Adison\Documents\SCS Launcher\profiles\A9SEWECDEZVK7L7OQ6OH\profile.json";
 
             FolderManager.Initialize();
 
@@ -20,6 +21,9 @@ namespace SCSlauncher.Core.ViewModels
             TwoCommand = new RelayCommand(Two);
             LaunchGameCommand = new RelayCommand(LaunchGame);
         }
+
+        // Currently loaded profile
+        public static Profile currentProfile = new Profile();
 
         #region Commands
         public ICommand OneCommand { get; set; }
@@ -34,15 +38,19 @@ namespace SCSlauncher.Core.ViewModels
         {
             Debug.Log("Clicked one");
 
-            Profile validatedProfile = ValidateProfile.Validate(profile);
-            Args.ParseArgsATS(validatedProfile);
-            ProfileManager.CreateProfile(validatedProfile);
+            ProfileManager.Refresh();
+
+            //Profile validatedProfile = ValidateProfile.Validate(profile);
+            //Args.ParseArgsATS(validatedProfile);
+            //ProfileManager.CreateProfile(validatedProfile);
         }
 
         private void Two(object obj)
         {
             Debug.Log("Clicked two");
-            MessageBox.Show(ProcessManager.IsRunning("eurotrucks2").ToString());
+            //MessageBox.Show(ProcessManager.IsRunning("eurotrucks2").ToString());
+
+            MessageBox.Show(currentProfile.profileName as string);
         }
 
         private void LaunchGame(object obj)

@@ -3,11 +3,50 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SCSlauncher.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="7"/>
+    </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Controls/WindowControls.xaml"/>
+                <ResourceDictionary Source="/Resources/icons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
     <Grid>
         <StackPanel>
+            <Grid
+                Height="50"
+                Background="Transparent"
+                MouseDown="MoveWindow">
+
+                <Button
+                    Margin="0,0,60,0"
+                    Click="MinimizeWindow"
+                    Style="{StaticResource MinimizeButton}">
+                    <Path Style="{DynamicResource MinimizeButtonPath}"/>
+                </Button>
+
+                <Button
+                    Margin="0,0,10,0"
+                    Click="CloseWindow"
+                    Style="{StaticResource CloseButton}">
+                    <Path Style="{DynamicResource CloseButtonPath}"/>
+                </Button>
+            </Grid>
+
             <Button x:Name="Test"  Content="Test" Command="{Binding OneCommand}" CommandParameter="One"/>
             <Button x:Name="TestTwo" Content="TestTwo" Command="{Binding TwoCommand}" CommandParameter="Two"/>
             <Button x:Name="LaunchGame" Content="LaunchGame" Command="{Binding LaunchGameCommand}" CommandParameter="ets"/>

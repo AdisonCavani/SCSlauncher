@@ -30,10 +30,20 @@ namespace SCSlauncher.Core
         /// <param name="logLevel"></param>
         private static void AppendMessage(string logMessage, string logLevelString, int logLevel)
         {
-            if (logLevel >= 0 && logLevel <= Windows.Properties.Settings.Default.LogLevel)
+            if (File.Exists(programPath + logFile))
             {
-                string message = sw.Elapsed.ToString("hh\\:mm\\:ss\\.fff") + "  " + logLevelString + ": " + logMessage + "\n";
-                File.AppendAllText(logPath, message);
+                if (logLevel >= 0 && logLevel <= Windows.Properties.Settings.Default.LogLevel)
+                {
+                    string message = sw.Elapsed.ToString("hh\\:mm\\:ss\\.fff") + "  " + logLevelString + ":\t" + logMessage + "\n";
+                    File.AppendAllText(logPath, message);
+                }
+            }
+
+            else
+            {
+                Initialize();
+                LogWarning("Program log file was deleted. Created new instance");
+                LogWarning($"Last log message: \"{logMessage}\"");
             }
         }
 
@@ -75,7 +85,7 @@ namespace SCSlauncher.Core
         /// <param name="logMessage"></param>
         public static void Log(string logMessage)
         {
-            AppendMessage(logMessage, "Info", 3);
+            AppendMessage("\t" + logMessage, "Info", 3);
         }
 
         /// <summary>

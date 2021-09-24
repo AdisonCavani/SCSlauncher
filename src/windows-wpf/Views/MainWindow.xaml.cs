@@ -1,5 +1,7 @@
 ﻿using SCSlauncher.Core.ViewModels;
+using System.IO;
 using System.Windows;
+using System.Windows.Input;
 
 namespace SCSlauncher.Windows
 {
@@ -12,6 +14,21 @@ namespace SCSlauncher.Windows
         {
             InitializeComponent();
             DataContext = new MainViewModel();
+        }
+
+        private void MinimizeWindow(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void CloseWindow(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void MoveWindow(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }
