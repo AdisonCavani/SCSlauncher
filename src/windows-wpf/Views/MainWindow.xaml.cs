@@ -27,7 +27,10 @@ namespace SCSlauncher.Windows
 
         private void MoveWindow(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 }
