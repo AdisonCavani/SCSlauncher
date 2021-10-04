@@ -26,6 +26,7 @@ namespace SCSlauncher.Core.ViewModels
         public static bool atsRunning;
         public static bool etsRunning;
 
+        #region Timers
         Timer atsTimer = new Timer(e => atsRunning = ProcessManager.IsRunning("americantrucksimulator"), null, TimeSpan.Zero, TimeSpan.FromSeconds(Windows.Properties.Settings.Default.RefreshTime));
         Timer etsTimer = new Timer(e => etsRunning = ProcessManager.IsRunning("eurotrucks2"), null, TimeSpan.Zero, TimeSpan.FromSeconds(Windows.Properties.Settings.Default.RefreshTime));
         #endregion
