@@ -12,8 +12,8 @@ namespace SCSlauncher.Core.ViewModels
     {
         public MainViewModel()
         {
-            //Windows.Properties.Settings.Default.LogLevel = 4;
-            //Windows.Properties.Settings.Default.Save();
+            Windows.Properties.Settings.Default.LogLevel = 4;
+            Windows.Properties.Settings.Default.Save();
             Windows.Properties.Settings.Default.LastProfile = @"C:\Users\Adison\Documents\SCS Launcher\profiles\A9SEWECDEZVK7L7OQ6OH\profile.json";
 
             FolderManager.Initialize();
@@ -28,6 +28,7 @@ namespace SCSlauncher.Core.ViewModels
 
         Timer atsTimer = new Timer(e => atsRunning = ProcessManager.IsRunning("americantrucksimulator"), null, TimeSpan.Zero, TimeSpan.FromSeconds(Windows.Properties.Settings.Default.RefreshTime));
         Timer etsTimer = new Timer(e => etsRunning = ProcessManager.IsRunning("eurotrucks2"), null, TimeSpan.Zero, TimeSpan.FromSeconds(Windows.Properties.Settings.Default.RefreshTime));
+        #endregion
 
         // Currently loaded profile
         public static Profile currentProfile = new Profile();
@@ -59,7 +60,7 @@ namespace SCSlauncher.Core.ViewModels
             Debug.Log("Clicked two");
             //MessageBox.Show(ProcessManager.IsRunning("eurotrucks2").ToString());
 
-            MessageBox.Show(currentProfile.profileName as string);
+            //MessageBox.Show(currentProfile.profileName as string);
         }
 
         private void LaunchGame(object obj)
