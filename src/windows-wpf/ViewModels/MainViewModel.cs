@@ -2,8 +2,6 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Windows;
 using System.Windows.Input;
 
 namespace SCSlauncher.Core.ViewModels
@@ -12,9 +10,9 @@ namespace SCSlauncher.Core.ViewModels
     {
         public MainViewModel()
         {
-            Windows.Properties.Settings.Default.LogLevel = 4;
-            Windows.Properties.Settings.Default.Save();
-            Windows.Properties.Settings.Default.LastProfile = @"C:\Users\Adison\Documents\SCS Launcher\profiles\A9SEWECDEZVK7L7OQ6OH\profile.json";
+            //Windows.Properties.Settings.Default.LogLevel = 4;
+            //Windows.Properties.Settings.Default.Save();
+            //Windows.Properties.Settings.Default.LastProfile = @"C:\Users\Adison\Documents\SCS Launcher\profiles\A9SEWECDEZVK7L7OQ6OH\profile.json";
 
             FolderManager.Initialize();
 
@@ -22,14 +20,6 @@ namespace SCSlauncher.Core.ViewModels
             TwoCommand = new RelayCommand(Two);
             LaunchGameCommand = new RelayCommand(LaunchGame);
         }
-
-        public static bool atsRunning;
-        public static bool etsRunning;
-
-        #region Timers
-        Timer atsTimer = new Timer(e => atsRunning = ProcessManager.IsRunning("americantrucksimulator"), null, TimeSpan.Zero, TimeSpan.FromSeconds(Windows.Properties.Settings.Default.RefreshTime));
-        Timer etsTimer = new Timer(e => etsRunning = ProcessManager.IsRunning("eurotrucks2"), null, TimeSpan.Zero, TimeSpan.FromSeconds(Windows.Properties.Settings.Default.RefreshTime));
-        #endregion
 
         // Currently loaded profile
         public static Profile currentProfile = new Profile();
@@ -46,8 +36,6 @@ namespace SCSlauncher.Core.ViewModels
         private void One(object obj)
         {
             Debug.Log("Clicked one");
-
-            MessageBox.Show(etsRunning.ToString());
 
             //ProfileManager.Refresh();
 
@@ -70,16 +58,14 @@ namespace SCSlauncher.Core.ViewModels
 
             if ((string)obj == "ats")
             {
-                string arg = Args.ParseArgsATS(validatedProfile);
                 Debug.Log($"Using profile: \"{profile.profileName}\"");
-                RunGame.ATS((string)validatedProfile.steamPath, arg);
+                Game.Run((string)validatedProfile.steamPath, Args.ParseArgsATS(validatedProfile));
             }
 
             else if ((string)obj == "ets")
             {
-                string arg = Args.ParseArgsETS(validatedProfile);
                 Debug.Log($"Using profile: \"{profile.profileName}\"");
-                RunGame.ETS((string)validatedProfile.steamPath, arg);
+                Game.Run((string)validatedProfile.steamPath, Args.ParseArgsETS(validatedProfile));
             }
         }
 

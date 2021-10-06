@@ -14,7 +14,6 @@ namespace SCSlauncher.Core
         {
             GetProfileList(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SCS Launcher\profiles\");
             Refresh();
-
         }
 
         /// <summary>
@@ -90,8 +89,7 @@ namespace SCSlauncher.Core
                 {
                     existingProfiles.Add(profile);
                 }
-
-                if (!File.Exists(profile + @"\profile.json"))
+                else
                 {
                     notExistingProfiles.Add(profile);
                 }

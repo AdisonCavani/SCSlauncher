@@ -1,19 +1,96 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Timers;
 
-namespace SCSlauncher.Core
+namespace SCSlauncher.Core.ViewModels
 {
-    public class ProcessManager
+    public class ProcessManager : INotifyPropertyChanged
     {
-        public static bool IsRunning(string processName)
+        public ProcessManager()
         {
-            Process[] pname = Process.GetProcessesByName(processName);
+            #region Timers
+            Timer atsTimer = new Timer
+            {
+                Interval = 3000,
+                AutoReset = true,
+                Enabled = true
+            };
+
+            atsTimer.Elapsed += IsAtsRunning;
+
+            Timer etsTimer = new Timer
+            {
+                Interval = 3000,
+                AutoReset = true,
+                Enabled = true
+            };
+
+            etsTimer.Elapsed += IsEtsRunning;
+            #endregion
+        }
+
+        #region Ctors
+        private bool _atsRunning;
+
+        public bool AtsRunning
+        {
+            get { return _atsRunning; }
+            set
+            {
+                _atsRunning = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _etsRunning;
+
+        public bool EtsRunning
+        {
+            get { return _etsRunning; }
+            set
+            {
+                _etsRunning = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+
+        private void IsAtsRunning(object source, ElapsedEventArgs e)
+        {
+            Process[] pname = Process.GetProcessesByName("americantrucks");
 
             if (pname.Length == 0)
             {
-                return false;
+                AtsRunning = false;
             }
-
-            return true;
+            else
+            {
+                AtsRunning = true;
+            }
         }
+
+        private void IsEtsRunning(object source, ElapsedEventArgs e)
+        {
+            Process[] pname = Process.GetProcessesByName("eurotrucks2");
+
+            if (pname.Length == 0)
+            {
+                EtsRunning = false;
+            }
+            else
+            {
+                EtsRunning = true;
+            }
+        }
+
+        #region EventHandlers
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
     }
 }

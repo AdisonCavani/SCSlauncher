@@ -15,6 +15,7 @@ namespace SCSlauncher.Core
             {
                 return true;
             }
+
             return false;
         }
 
@@ -39,7 +40,7 @@ namespace SCSlauncher.Core
         /// <param name="profile"></param>
         public static void CreateFile(string path, string fileName, string content)
         {
-            if (FileManager.CheckForDirectory(path))
+            if (CheckForDirectory(path))
             {
                 File.WriteAllText(path + fileName, content);
                 Debug.Log($"Created file: \"{path}{fileName}\"");
@@ -47,7 +48,7 @@ namespace SCSlauncher.Core
 
             else
             {
-                FileManager.CreateDirectory(path);
+                CreateDirectory(path);
                 File.WriteAllText(path + fileName, content);
                 Debug.Log($"Created file: \"{path}{fileName}\"");
             }

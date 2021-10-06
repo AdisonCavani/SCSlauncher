@@ -3,13 +3,13 @@ using System.Diagnostics;
 
 namespace SCSlauncher.Core
 {
-    public class RunGame
+    public class Game
     {
-        public static void ATS(string fileName, string arg)
+        public static void Run(string fileName, string arg)
         {
             try
             {
-                Debug.Log("Launching ATS");
+                Debug.Log("Launching game");
                 Debug.Log($"Steam path: \"{fileName}\"");
                 Debug.Log($"Arguments: \"{arg}\"");
                 Process process = new Process();
@@ -22,24 +22,5 @@ namespace SCSlauncher.Core
                 Debug.LogException(e.Message);
             }
         }
-
-        public static void ETS(string fileName, string arg)
-        {
-            try
-            {
-                Debug.Log($"Launching ETS2");
-                Debug.Log($"Steam path: \"{fileName}\"");
-                Debug.Log($"Arguments: \"{arg}\"");
-                Process process = new Process();
-                process.StartInfo.FileName = fileName;
-                process.StartInfo.Arguments = arg;
-                process.Start();
-            }
-            catch (Exception e)
-            {
-                Debug.LogException(e.Message);
-            }
-        }
-
     }
 }

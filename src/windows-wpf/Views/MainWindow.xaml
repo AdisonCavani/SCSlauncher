@@ -83,10 +83,11 @@
                 </Button>
             </Grid>
 
-            <Button x:Name="Test"  Content="Test" Command="{Binding OneCommand}" CommandParameter="One"/>
-            <Button x:Name="TestTwo" Content="TestTwo" Command="{Binding TwoCommand}" CommandParameter="Two"/>
-            <Button x:Name="LaunchGame" Content="LaunchGame" Command="{Binding LaunchGameCommand}" CommandParameter="ets"/>
+            <Button x:Name="Test"  Content="Test" Command="{Binding main.OneCommand}" CommandParameter="One"/>
+            <Button x:Name="TestTwo" Content="TestTwo" Command="{Binding main.TwoCommand}" CommandParameter="Two"/>
+            <Button x:Name="LaunchGame" Content="LaunchGame" Command="{Binding main.LaunchGameCommand}" CommandParameter="ets"/>
 
+            <TextBlock Text="{Binding process.EtsRunning}"/>
         </StackPanel>
     </Grid>
 </Window>

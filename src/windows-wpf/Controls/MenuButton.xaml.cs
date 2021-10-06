@@ -41,7 +41,7 @@ namespace SCSlauncher.Windows.customcontrols
         }
 
         // Using a DependencyProperty as the backing store for Padding.  This enables animation, styling, binding, etc...
-        public new static readonly DependencyProperty PaddingProperty =
+        public static new readonly DependencyProperty PaddingProperty =
             DependencyProperty.Register("Padding", typeof(Thickness), typeof(MenuButton));
 
         public bool IsSelected

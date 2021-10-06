@@ -4,7 +4,7 @@ namespace SCSlauncher.Core
 {
     public class FolderManager
     {
-        private readonly static string programFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SCS Launcher";
+        private static readonly string programFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\SCS Launcher";
 
         //.
         //└── SCS Launcher

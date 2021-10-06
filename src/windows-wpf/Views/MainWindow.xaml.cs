@@ -12,7 +12,11 @@ namespace SCSlauncher.Windows
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            DataContext = new
+            {
+                main = new MainViewModel(),
+                process = new ProcessManager()
+            };
         }
 
         private void MinimizeWindow(object sender, RoutedEventArgs e)
