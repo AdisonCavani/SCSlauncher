@@ -11,13 +11,13 @@ namespace SCSlauncher.ViewModels
         public ViewManager(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
-
-            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+            OnPropertyChanged();
+            //_navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 
-        private void OnCurrentViewModelChanged()
-        {
-            OnPropertyChanged(nameof(CurrentViewModel));
-        }
+        //private void OnCurrentViewModelChanged()
+        //{
+        //    OnPropertyChanged(nameof(CurrentViewModel));
+        //}
     }
 }

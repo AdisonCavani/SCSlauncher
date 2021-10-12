@@ -1,34 +1,12 @@
 ﻿using SCSlauncher.ViewModels;
 using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace SCSlauncher.Stores
 {
-    //public class NavigationStore : INotifyPropertyChanged
-    //{
-    //    private ViewModelBase _currentViewModel;
-    //    public ViewModelBase CurrentViewModel
-    //    {
-    //        get => _currentViewModel;
-    //        set
-    //        {
-    //            _currentViewModel = value;
-    //            OnPropertyChanged();
-    //        }
-    //    }
-
-    //    #region EventHandlers
-    //    public event PropertyChangedEventHandler PropertyChanged;
-    //    private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-    //    {
-    //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    //    }
-    //    #endregion
-    //}
-
-    public class NavigationStore
+    public class NavigationStore : INotifyPropertyChanged
     {
-        public event Action CurrentViewModelChanged;
-
         private ViewModelBase _currentViewModel;
         public ViewModelBase CurrentViewModel
         {
@@ -36,13 +14,17 @@ namespace SCSlauncher.Stores
             set
             {
                 _currentViewModel = value;
-                OnCurrentViewModelChanged();
+                OnPropertyChanged();
             }
         }
 
-        private void OnCurrentViewModelChanged()
+        #region EventHandlers
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            CurrentViewModelChanged?.Invoke();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        #endregion
+
     }
 }
