@@ -62,8 +62,9 @@
                     Icon="{StaticResource Settings}"
                     Text="Settings"
                     GroupName="MenuButton"/>
-                <Button Command="{Binding NavigateHomeCommand}"/>
-                <Button Command="{Binding NavigateAccountCommand}"/>
+                
+                <!--<Button Command="{Binding NavigateHomeCommand}"/>-->
+                <!--<Button Command="{Binding NavigateAccountCommand}"/>-->
             </StackPanel>
         </Grid>
         <Grid

@@ -1,7 +1,5 @@
 ﻿using SCSlauncher.ViewModels;
 using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace SCSlauncher.Stores
 {

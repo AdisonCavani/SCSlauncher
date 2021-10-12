@@ -4,7 +4,7 @@ using SCSlauncher.Views;
 using System;
 using System.Windows;
 
-namespace SCSlauncher.Windows
+namespace SCSlauncher
 {
     /// <summary>
     /// Interaction logic for App.xaml
