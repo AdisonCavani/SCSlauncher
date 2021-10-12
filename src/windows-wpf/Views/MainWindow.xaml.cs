@@ -1,4 +1,6 @@
-﻿using SCSlauncher.Core.ViewModels;
+﻿using SCSlauncher.Core;
+using SCSlauncher.Core.ViewModels;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 
@@ -17,6 +19,7 @@ namespace SCSlauncher.Windows
                 main = new MainViewModel(),
                 process = new ProcessManager()
             };
+
         }
 
         private void MinimizeWindow(object sender, RoutedEventArgs e)

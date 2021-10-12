@@ -12,6 +12,8 @@
     <SolidColorBrush x:Key="BrightYellow" Color="#fdbc40"/>
     <SolidColorBrush x:Key="Yellow" Color="#de9f34"/>
     <SolidColorBrush x:Key="DarkYellow" Color="#985712"/>
+    <SolidColorBrush x:Key="Blue" Color="#318efe"/>
+
     <Color x:Key="ForegroundColor" R="255" G="255" B="255" A="255"/>
     <Color x:Key="LightGreyColor" R="178" G="178" B="178" A="255"/>
     <Color x:Key="GreyColor" R="54" G="54" B="54" A="255"/>
@@ -23,5 +25,6 @@
     <Color x:Key="BrightYellowColor" R="253" G="188" B="64" A="255"/>
     <Color x:Key="YellowColor" R="222" G="159" B="52" A="255"/>
     <Color x:Key="DarkYellowColor" R="152" G="87" B="18" A="255"/>
+    <Color x:Key="BlueColor" R="49" G="142" B="254" A="255"/>
 
 </ResourceDictionary>

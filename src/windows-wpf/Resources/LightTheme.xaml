@@ -2,16 +2,21 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="Background" Color="White"/>
+    <SolidColorBrush x:Key="Foreground" Color="#318efe"/>
     <SolidColorBrush x:Key="LightGrey" Color="#7b8791"/>
     <SolidColorBrush x:Key="Grey" Color="#eaf4fe"/>
     <SolidColorBrush x:Key="DarkGrey" Color="#ffffff"/>
-    <SolidColorBrush x:Key="Foreground" Color="#318efe"/>
     <SolidColorBrush x:Key="BrightRed" Color="#fc5753"/>
     <SolidColorBrush x:Key="Red" Color="#df4744"/>
     <SolidColorBrush x:Key="DarkRed" Color="#7e0508"/>
     <SolidColorBrush x:Key="BrightYellow" Color="#fdbc40"/>
     <SolidColorBrush x:Key="Yellow" Color="#de9f34"/>
     <SolidColorBrush x:Key="DarkYellow" Color="#985712"/>
+    <Color x:Key="ForegroundColor" R="49" G="142" B="254" A="255"/>
+    <Color x:Key="LightGreyColor" R="123" G="135" B="145" A="255"/>
+    <Color x:Key="GreyColor" R="234" G="244" B="254" A="255"/>
+    <Color x:Key="GreyHoverColor" R="244" G="250" B="254" A="255"/>
+    <Color x:Key="DarkGreyColor" R="255" G="255" B="255" A="255"/>
     <Color x:Key="BrightRedColor" R="252" G="87" B="83" A="255"/>
     <Color x:Key="RedColor" R="223" G="71" B="68" A="255"/>
     <Color x:Key="DarkRedColor" R="126" G="5" B="8" A="255"/>

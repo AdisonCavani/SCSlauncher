@@ -11,8 +11,9 @@ namespace SCSlauncher.Core.ViewModels
         public MainViewModel()
         {
             //Windows.Properties.Settings.Default.LogLevel = 4;
-            //Windows.Properties.Settings.Default.Save();
+            Windows.Properties.Settings.Default.DarkTheme = true;
             //Windows.Properties.Settings.Default.LastProfile = @"C:\Users\Adison\Documents\SCS Launcher\profiles\A9SEWECDEZVK7L7OQ6OH\profile.json";
+            Windows.Properties.Settings.Default.Save();
 
             FolderManager.Initialize();
 
@@ -47,8 +48,6 @@ namespace SCSlauncher.Core.ViewModels
         private void Two(object obj)
         {
             Debug.Log("Clicked two");
-            //MessageBox.Show(ProcessManager.IsRunning("eurotrucks2").ToString());
-
             //MessageBox.Show(currentProfile.profileName as string);
         }
 

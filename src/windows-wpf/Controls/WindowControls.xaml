@@ -6,8 +6,8 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="CloseButton" TargetType="{x:Type Button}">
-        <Setter Property="Width" Value="22"/>
-        <Setter Property="Height" Value="22"/>
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
@@ -16,7 +16,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border
                         BorderThickness="0"
-                        CornerRadius="11"
+                        CornerRadius="12"
                         Background="{DynamicResource BrightRed}"
                         BorderBrush="{DynamicResource Red}">
                         <ContentPresenter
@@ -32,8 +32,8 @@
     </Style>
 
     <Style x:Key="MinimizeButton" TargetType="{x:Type Button}">
-        <Setter Property="Width" Value="22"/>
-        <Setter Property="Height" Value="22"/>
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
@@ -42,7 +42,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border
                         BorderThickness="0"
-                        CornerRadius="11"
+                        CornerRadius="12"
                         Background="{DynamicResource BrightYellow}"
                         BorderBrush="{DynamicResource Yellow}">
                         <ContentPresenter
@@ -58,8 +58,8 @@
     </Style>
 
     <Style x:Key="CloseButtonPath" TargetType="{x:Type Path}">
-        <Setter Property="Width" Value="11"/>
-        <Setter Property="Height" Value="11"/>
+        <Setter Property="Width" Value="12"/>
+        <Setter Property="Height" Value="12"/>
         <Setter Property="Stretch" Value="Uniform"/>
         <Setter Property="Fill" Value="{DynamicResource BrightRed}"/>
         <Setter Property="Data" Value="{DynamicResource ClosePath}"/>
@@ -90,8 +90,8 @@
 
     <Style x:Key="MinimizeButtonPath" TargetType="{x:Type Path}">
         <Setter Property="Fill" Value="{DynamicResource BrightYellow}"/>
-        <Setter Property="Width" Value="11"/>
-        <Setter Property="Height" Value="11"/>
+        <Setter Property="Width" Value="12"/>
+        <Setter Property="Height" Value="12"/>
         <Setter Property="Stretch" Value="Uniform"/>
         <Setter Property="Data" Value="{DynamicResource MinimizePath}"/>
         <Style.Triggers>

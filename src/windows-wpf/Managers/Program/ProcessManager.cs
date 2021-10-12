@@ -12,7 +12,7 @@ namespace SCSlauncher.Core.ViewModels
             #region Timers
             Timer atsTimer = new Timer
             {
-                Interval = 3000,
+                Interval = Windows.Properties.Settings.Default.RefreshTime * 1000,
                 AutoReset = true,
                 Enabled = true
             };
@@ -21,7 +21,7 @@ namespace SCSlauncher.Core.ViewModels
 
             Timer etsTimer = new Timer
             {
-                Interval = 3000,
+                Interval = Windows.Properties.Settings.Default.RefreshTime * 1000,
                 AutoReset = true,
                 Enabled = true
             };

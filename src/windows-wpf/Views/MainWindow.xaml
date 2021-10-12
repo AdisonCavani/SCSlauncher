@@ -2,15 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:customcontrols="clr-namespace:SCSlauncher.Windows.customcontrols"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:customcontrols="clr-namespace:SCSlauncher.Windows.customcontrols"
+        xmlns:local="clr-namespace:SCSlauncher"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="600"
         Width="1000"
         WindowStyle="SingleBorderWindow"
-        ResizeMode="CanMinimize"
+        ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
-        Background="{DynamicResource DarkGrey}">
+        Background="{DynamicResource DarkGrey}"
+        MinHeight="500"
+        MinWidth="800">
 
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="7"/>
@@ -19,27 +23,27 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Controls/Toggle.xaml"/>
                 <ResourceDictionary Source="/Controls/WindowControls.xaml"/>
-                <ResourceDictionary Source="/Resources/icons.xaml"/>
+                <ResourceDictionary Source="/Resources/Icons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="210"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
             <StackPanel
-                Margin="0,50,0,0">
+                Margin="0,46,0,0">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type customcontrols:MenuButton}">
                         <Setter Property="Margin" Value="0,4"/>
                     </Style>
                 </StackPanel.Resources>
-
                 <customcontrols:MenuButton
                     Icon="{StaticResource Home}"
                     Text="Generate"
@@ -57,37 +61,35 @@
                     Icon="{StaticResource Settings}"
                     Text="Settings"
                     GroupName="MenuButton"/>
-
             </StackPanel>
         </Grid>
-
-        <StackPanel
+        <Grid
             Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid
-                Height="50"
+                Grid.Row="0"
                 Background="Transparent"
                 MouseDown="MoveWindow">
-
                 <Button
-                    Margin="0,0,35,0"
+                    Margin="0,0,50,0"
                     Click="MinimizeWindow"
                     Style="{StaticResource MinimizeButton}">
                     <Path Style="{DynamicResource MinimizeButtonPath}"/>
                 </Button>
-
                 <Button
-                    Margin="0,0,5,0"
+                    Margin="0,0,15,0"
                     Click="CloseWindow"
                     Style="{StaticResource CloseButton}">
                     <Path Style="{DynamicResource CloseButtonPath}"/>
                 </Button>
             </Grid>
-
-            <Button x:Name="Test"  Content="Test" Command="{Binding main.OneCommand}" CommandParameter="One"/>
-            <Button x:Name="TestTwo" Content="TestTwo" Command="{Binding main.TwoCommand}" CommandParameter="Two"/>
-            <Button x:Name="LaunchGame" Content="LaunchGame" Command="{Binding main.LaunchGameCommand}" CommandParameter="ets"/>
-
-            <TextBlock Text="{Binding process.EtsRunning}"/>
-        </StackPanel>
+            <Grid
+                Grid.Row="1">
+                <Frame NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
