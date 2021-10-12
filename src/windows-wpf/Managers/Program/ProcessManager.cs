@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Timers;
 
-namespace SCSlauncher.Core.ViewModels
+namespace SCSlauncher.ViewModels
 {
     public class ProcessManager : INotifyPropertyChanged
     {

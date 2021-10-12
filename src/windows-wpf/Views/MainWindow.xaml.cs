@@ -1,10 +1,7 @@
-﻿using SCSlauncher.Core;
-using SCSlauncher.Core.ViewModels;
-using System.Diagnostics;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
-namespace SCSlauncher.Windows
+namespace SCSlauncher.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -14,12 +11,6 @@ namespace SCSlauncher.Windows
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new
-            {
-                main = new MainViewModel(),
-                process = new ProcessManager()
-            };
-
         }
 
         private void MinimizeWindow(object sender, RoutedEventArgs e)
@@ -35,9 +26,7 @@ namespace SCSlauncher.Windows
         private void MoveWindow(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
-            {
                 DragMove();
-            }
         }
     }
 }

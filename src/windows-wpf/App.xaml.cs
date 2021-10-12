@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SCSlauncher.Stores;
+using SCSlauncher.ViewModels;
+using SCSlauncher.Views;
+using System;
 using System.Windows;
 
 namespace SCSlauncher.Windows
@@ -12,7 +15,18 @@ namespace SCSlauncher.Windows
         {
             //SetResourceDictionary();
 
-            MainWindow = new MainWindow();
+            NavigationStore navigationStore = new NavigationStore();
+            navigationStore.CurrentViewModel = new HomeViewModel(navigationStore);
+
+            MainWindow = new MainWindow()
+            {
+                DataContext = new
+                {
+                    main = new MainViewModel(),
+                    view = new ViewManager(navigationStore),
+                    process = new ProcessManager()
+                }
+            };
             MainWindow.Show();
 
             base.OnStartup(e);

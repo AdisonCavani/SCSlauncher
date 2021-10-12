@@ -1,10 +1,11 @@
-﻿using SCSlauncher.Core.Commands;
+﻿using SCSlauncher.Commands;
+using SCSlauncher.Core;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
-namespace SCSlauncher.Core.ViewModels
+namespace SCSlauncher.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {

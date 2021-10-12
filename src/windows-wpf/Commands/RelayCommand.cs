@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace SCSlauncher.Core.Commands
+namespace SCSlauncher.Commands
 {
     public class RelayCommand : ICommand
     {

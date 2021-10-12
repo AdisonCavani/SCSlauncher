@@ -1,4 +1,4 @@
-﻿using SCSlauncher.Core.ViewModels;
+﻿using SCSlauncher.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
