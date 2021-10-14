@@ -36,12 +36,12 @@ namespace SCSlauncher
         {
             var lightTheme = new ResourceDictionary()
             {
-                Source = new Uri("pack://application:,,,/Resources/LightTheme.xaml", UriKind.RelativeOrAbsolute)
+                Source = new Uri("pack://application:,,,/Resources/Themes/LightTheme.xaml", UriKind.RelativeOrAbsolute)
             };
 
             var darkTheme = new ResourceDictionary()
             {
-                Source = new Uri("pack://application:,,,/Resources/DarkTheme.xaml", UriKind.RelativeOrAbsolute)
+                Source = new Uri("pack://application:,,,/Resources/Themes/DarkTheme.xaml", UriKind.RelativeOrAbsolute)
             };
 
             if (SCSlauncher.Windows.Properties.Settings.Default.DarkTheme == false)

@@ -3,17 +3,20 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:customcontrols="clr-namespace:SCSlauncher.Windows.customcontrols"
       mc:Ignorable="d"
       d:DesignHeight="534.04"
       d:DesignWidth="790"
       Background="{DynamicResource DarkGrey}">
 
-    <TabControl>
-        <TabItem Header="American Truck Simulator">
-            <Label Content="ATS"/>
-        </TabItem>
-        <TabItem Header="Euro Truck Simulator 2">
-            <Label Content="ETS"/>
-        </TabItem>
-    </TabControl>
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <customcontrols:TabControl
+            Text="American Truck Simulator"
+            IsSelected="True"
+            GroupName="TabControl"/>
+        <customcontrols:TabControl
+            Padding="0"
+            Text="Euro Truck Simulator 2"
+            GroupName="TabControl"/>
+    </StackPanel>
 </UserControl>
