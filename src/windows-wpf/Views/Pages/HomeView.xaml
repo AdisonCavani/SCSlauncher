@@ -4,19 +4,28 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:customcontrols="clr-namespace:SCSlauncher.Windows.customcontrols"
+      xmlns:decorator="clr-namespace:SCSlauncher.Decorators"
       mc:Ignorable="d"
       d:DesignHeight="534.04"
       d:DesignWidth="790"
       Background="{DynamicResource DarkGrey}">
 
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Controls/Decorators/RippleEffectDecorator.xaml"/>
+    </UserControl.Resources>
+
     <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
-        <customcontrols:TabControl
-            Text="American Truck Simulator"
-            IsSelected="True"
-            GroupName="TabControl"/>
-        <customcontrols:TabControl
-            Padding="0"
-            Text="Euro Truck Simulator 2"
-            GroupName="TabControl"/>
+        <decorator:RippleEffectDecorator HighlightBackground="#f5f5f5">
+            <customcontrols:TabControl
+                Text="American Truck Simulator"
+                IsSelected="True"
+                GroupName="TabControl"/>
+        </decorator:RippleEffectDecorator>
+
+        <decorator:RippleEffectDecorator HighlightBackground="#f5f5f5">
+            <customcontrols:TabControl
+                Text="Euro Truck Simulator 2"
+                GroupName="TabControl"/>
+        </decorator:RippleEffectDecorator>
     </StackPanel>
 </UserControl>
